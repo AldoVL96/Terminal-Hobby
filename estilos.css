@@ -1,0 +1,170 @@
+/*========================================
+ESTILOS GENERALES Y ANIMACIONES RETRO
+========================================*/
+
+/* Animaciòn de parpadeo sutil (FLICKER) */
+@keyframes terminal-flicker{
+    0%{opacity:0.97;}
+    50%{opacity:1;}
+    100%{opacity:0.98;}
+}
+body {
+    background-color: #050805;
+    color: #00ff66;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    animation: terminal-flicker 0.15s infinite;
+}
+
+/* Contenedor principal de la terminal */
+.terminal-container {
+    position: relative;
+    width: 800px;
+    max-width: 90%;
+    background-color: #0b140b;
+    border: 2px solid #00ff66;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(0, 255, 102, 0.4);
+    padding: 25px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.terminal-container::before{
+    content:"";
+    display:block;
+    position:absolute;
+    top:0; left:0; bottom:0; right:0;
+    background: linear-gradient(to bottom, rgba(18,16,16,0), 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/*==========================
+ENCABZADO DE LA TERMINAL
+==========================*/
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.terminal-icon{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.terminal-title {
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.terminal-subtitle {
+    font-size: 12px;
+    margin: 5px 0 0 0;
+    color: #00b347;
+}
+
+/* Lineas divisorias */
+.terminal-divider {
+    border: none;
+    border-top: 1px solid #00ff66;
+    margin: 20px 0;
+}
+
+/* ==========================
+MENÚ DE NAVEGACIÓN
+========================== */
+
+.menu-title {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-list li {
+    margin-bottom: 10px;
+}
+
+.menu-list a{
+    color: #00ff66;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+.num {
+    color: #00b347;
+}
+
+/*==========================
+PIE DE PÁGINA Y CURSOR
+==========================*/
+
+.terminal-footer{
+    font-size: 13px;
+    margin: 0;
+    text-shadow: 0 0 5px rgba(0, 255, 102, 0.5);
+}
+
+/*Animación del cursor parpadeante*/
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/*==========================
+SECCIONES DESPLEGABLES (SINGLE PAGE)
+==========================*/
+
+/* Desplazamiento suave al hacer clic en los enlaces del menú */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos de las secciones de contenido */
+.terminal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.content-section {
+    padding-top: 10px;
+}
+
+.section-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    border-bottom: 1px dashed #00b347;
+    padding-bottom: 5px;
+}
+
+.content-section p {
+    font-size: 14px;
+    margin: 8px 0;
+    line-height: 1.5;
+}
